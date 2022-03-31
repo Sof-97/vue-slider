@@ -11,13 +11,6 @@
 			integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
 			crossorigin="anonymous"
 		/>
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-			integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-			crossorigin="anonymous"
-			referrerpolicy="no-referrer"
-		/>
 		<link rel="stylesheet" href="./style.css" />
 		<title>Slider Magico</title>
 	</head>
@@ -39,10 +32,14 @@
 				<!-- Immagine -->
 				<div class="d-flex align-items-center flex-column">
 					<img v-bind:src="image[setIndex]" alt="" class="rounded" />
-					<div class="bg-dark  rounded-pill p-3">
-						<span v-for="(e, i) in image" class="mx-2" @click="">
-                            <i class="fa-solid fa-circle text-light"></i>
-                        </span>
+					<div class="bg-dark rounded-pill p-3" id="selector">
+						<span
+							v-for="(e, i) in image"
+							class="mx-2"
+							@click=""
+							:class="(i == setIndex)? 'active':''"
+						>
+						</span>
 					</div>
 				</div>
 				<!-- Freccia Destra -->
