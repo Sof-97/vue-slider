@@ -2,15 +2,18 @@ var app = new Vue({
     el: '#root',
     data: {
         image: [
-            'https://source.unsplash.com/random/200x880/?landscape',
-            'https://source.unsplash.com/random/200x880/?landscape,city',
-            'https://source.unsplash.com/random/200x880/?landscape,japann',
-            'https://source.unsplash.com/random/200x880/?landscape,rome'
+            'https://source.unsplash.com/random/1920x1080/?landscape',
+            'https://source.unsplash.com/random/1920x1080/?landscape,city',
+            'https://source.unsplash.com/random/1920x1080/?landscape,japann',
+            'https://source.unsplash.com/random/1920x1080/?landscape,rome'
         ],
         setIndex: 0,
-        skip: null,
+        clock: null,
     },
     methods: {
+        clockBoom: function(){
+            this.clock = setInterval(this.nextImage, 3000)
+        },
         nextImage: function(){
             if(this.setIndex == this.image.length-1){
                 this.setIndex = 0
@@ -24,10 +27,15 @@ var app = new Vue({
             } else{
                 this.setIndex--
             }
+        },
+        select: function(i){
+            this.setIndex = i
+            clearInterval(this.clock)
+            this.clockBoom()
         }
     },
     mounted(){
-        this.skip = setInterval(this.nextImage, 3000)        
+        this.clockBoom()
     }
 }
 )

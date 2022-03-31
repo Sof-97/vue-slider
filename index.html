@@ -7,6 +7,13 @@
 
 		<link
 			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+			integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+		<link
+			rel="stylesheet"
 			href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
 			integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
 			crossorigin="anonymous"
@@ -31,12 +38,16 @@
 				</div>
 				<!-- Immagine -->
 				<div class="d-flex align-items-center flex-column">
-					<img v-bind:src="image[setIndex]" alt="" class="rounded" />
-					<div class="bg-dark rounded-pill p-3" id="selector">
+					<img
+						v-bind:src="image[setIndex]"
+						:alt="`immagine numero ${setIndex}`"
+						class="rounded"
+					/>
+					<div class="bg-dark rounded-pill p-3 mt-3" id="selector">
 						<span
 							v-for="(e, i) in image"
 							class="mx-2"
-							@click=""
+							@click="select([i])"
 							:class="(i == setIndex)? 'active':''"
 						>
 						</span>
