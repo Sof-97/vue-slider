@@ -1,1 +1,1 @@
-# vue-slider
+## A simple automatic image slider created with Vue.js.
